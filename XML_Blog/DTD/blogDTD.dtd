@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!ELEMENT auth:name (#PCDATA)>
+<!ELEMENT auth:surname (#PCDATA)>
+<!ELEMENT auth:date_joined (#PCDATA)>
+<!ELEMENT auth:author (auth:name, auth:surname, auth:date_joined)>
+<!ATTLIST auth:author
+	authID ID #REQUIRED
+>
+<!ELEMENT blog_authors (auth:author*)>
+
+<!ELEMENT pg:page (pst:post*)>
+<!ATTLIST pg:page
+	pgID ID #REQUIRED
+	created_by IDREF #REQUIRED
+>
+<!ELEMENT blog_pages (pg:page*)>
+
+<!ELEMENT pst:title (#PCDATA)>
+<!ELEMENT pst:date (#PCDATA)>
+<!ELEMENT pst:update (#PCDATA)>
+<!ELEMENT pst:post (pst:title, pst:date, pst:update, pst:paragraph*)>
+<!ATTLIST pst:post
+	pstID ID #REQUIRED
+>
+
+<!ELEMENT pst:text (#PCDATA)>
+<!ELEMENT pst:image (#PCDATA)>
+<!ELEMENT pst:reference (#PCDATA)>
+<!ELEMENT pst:paragraph ((pst:text*), (pst:image*), (pst:reference*))>
+
+<!ELEMENT pgcmt:name (#PCDATA)>
+<!ELEMENT pgcmt:message (#PCDATA)>
+<!ELEMENT pgcmt:time_stamp (#PCDATA)>
+<!ELEMENT pstcmt:name (#PCDATA)>
+<!ELEMENT pstcmt:message (#PCDATA)>
+<!ELEMENT pstcmt:time_stamp (#PCDATA)>
+<!ELEMENT pgcmt:comment (pgcmt:name, pgcmt:message, pgcmt:time_stamp)>
+<!ATTLIST pgcmt:comment
+	pgcmtID ID #REQUIRED
+	comment_page IDREF #REQUIRED
+>
+<!ELEMENT pstcmt:comment (pstcmt:name, pstcmt:message, pstcmt:time_stamp)>
+<!ATTLIST pstcmt:comment
+	pstcmtID ID #REQUIRED
+	comment_post IDREF #REQUIRED
+>
+<!ELEMENT all_comments (pgcmt:comment*, pstcmt:comment*)>
+
+<!ELEMENT blog (blog_authors, blog_pages, all_comments)>
+<!ATTLIST blog
+	xmlns:auth CDATA #REQUIRED
+	xmlns:pst CDATA #REQUIRED
+	xmlns:pgcmt CDATA #REQUIRED
+	xmlns:pstcmt CDATA #REQUIRED
+	xmlns:pg CDATA #REQUIRED
+>
