@@ -1,0 +1,7 @@
+{
+	"gender":
+	[
+		{ "ID":"001" , "gender":"Male" },
+		{ "ID":"002" , "gender":"Female" }
+	]
+}
