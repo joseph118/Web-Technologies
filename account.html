@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+    <head>
+	    <title>Sign in</title>
+        <link rel="stylesheet" type="text/css" href="css/index.css">
+        <script src="javascript/jquery-git.js"> </script>
+        <script>
+            $(document).ready(function () {
+
+                if (sessionStorage.getItem("login") != null) {
+                    $("#signinli").hide();
+                    $("#signoutli").show();
+                    $("#cartli").show();
+                    $("#greetli").show();
+                    $("#welcome").text("Welcome " + sessionStorage.getItem("login"));
+                    window.location = "index.html";
+                } else {
+                    $("#signinli").show();
+                    $("#signoutli").hide();
+                    $("#cartli").hide();
+                    $("#greetli").hide();
+                }
+
+                $(".signout").click(function () {
+                    sessionStorage.clear();
+                    $("#welcome").text("");
+                    location.reload();
+                });
+
+                $(".login").click(function () {
+                    if (typeof (Storage) != "undefined") {
+                        var username = document.getElementById("susername").value;
+                        var password = document.getElementById("spassword").value;
+
+                        if (username == localStorage.getItem(username) && password == localStorage.getItem(username + "password")) {
+                            sessionStorage.setItem("login", username);
+                            window.location.href = "index.html";
+                        } else {
+                            $(".serror").text("Username or password is incorrect");
+                        }
+                    } else {
+                        alert("Unsupported Browser! Please Update your Browser!");
+                    }
+                });
+
+                $(".register").click(function () {
+                    // First check if local storage is supported then
+                    // store in local Storage
+                    if (typeof (Storage) != "undefined") {
+                        var username = document.getElementById("username").value;
+                        var password = document.getElementById("password").value;
+                        var rpassword = document.getElementById("rpassword").value;
+                        var email = document.getElementById("email").value;
+                        var name = document.getElementById("name").value;
+                        var surname = document.getElementById("surname").value;
+
+                        // Check if Values Are Empty
+                        if (username != "" && password != "" && email != "" && name != "" && surname != "" && rpassword != "") {
+                            if (password == rpassword) {
+                                localStorage.setItem(username, username);
+                                localStorage.setItem(username + "password", password);
+                                localStorage.setItem(username + "email", email);
+                                localStorage.setItem(username + "name", name);
+                                localStorage.setItem(username + "surname", surname);
+                                window.location.href = "account.html";
+                            } else {
+                                $(".rerror").text("Password Mismatch");
+                            }
+                        } else {
+                            $(".rerror").text("Don't Leave Textboxes Empty!");
+                        }
+
+                    } else {
+                        alert("Unsupported Browser! Please Update your Browser!");
+                    }
+                });
+            });
+        </script>
+    </head>
+
+    <body id="page">
+        <div id="bar">
+                <ul>
+                    <li id="signinli">
+                        <a id="account" href="account.html">Sign In</a>
+                    </li>
+                    <li id="signoutli">
+                        <a id="account" href="#" class="signout">Sign Out</a>
+                    </li>
+                    <li id="cartli">
+                        <a id="account" href="shoppingCart.html" class="cart">Shopping Cart</a>
+                    </li>
+                    <li id="greetli">
+                        <label id="welcome"></label>
+                    </li>
+                </ul>
+        </div>
+        
+        <header>
+            <div>
+                <a href="index.html"><h1>CHIC his & her Collection</h1></a>
+            </div>
+
+            <nav>
+                <ul>
+                    <li>
+                        <a href="index.html">Home</a>
+                    </li>
+                    <li>
+                        <a href="contact.html">Contact Us</a>
+                    </li>
+                    <li>
+                        <a href="clothes.html">Clothes</a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+
+        <div id="title">
+            <h2>Sign In</h2>
+        </div>
+
+        <div id="content">
+            <div id="account-wrapper">
+                <h2>Account</h2>
+                <p>Sign in to gain full functionality of the website!</p>
+                <div id="sign-wrapper">
+                    <h3>Sign In</h3>
+                    <form>
+                        <div id="sign">
+                            <table>
+                                <tr>
+								    <td> <label>Username: </label> </td>
+								    <td> <input type="text" name="username" id="susername" required placeholder="Username" />  </td>
+							    </tr>
+							    <tr> 
+								    <td> <label>Password: </label> </td> 
+								    <td> <input type="password" name="password" id="spassword" required placeholder="Password"/> </td>
+							    </tr>
+                            </table>
+                            <table>
+                                <tr>
+                                    <td> <label id="error" class="serror"></label> </td>
+                                </tr>
+                                <tr id="lr">
+								    <td> <input type="submit" name="login" value="Login" class="login" /> </td>
+							    </tr>
+                            </table>
+                        </div>
+                    </form>
+                </div>
+                <div id="register-wrapper">
+                    <h3>Register</h3>
+                    <form>
+                        <div id="register">
+                            <table>
+                                <tr>
+								    <td> <label>Username: </label> </td>
+								    <td> <input type="text" name="username" id="username" required placeholder="Username" />  </td>
+							    </tr>
+							    <tr> 
+								    <td> <label>Password: </label> </td> 
+								    <td> <input type="password" name="password" id="password" required placeholder="Password"/> </td>
+							    </tr>
+                                <tr> 
+								    <td> <label>Re-type Password: </label> </td>
+								    <td> <input type="password" name="rpassword" id="rpassword" required placeholder="Re-type Password" /> </td> 
+							    </tr>
+                                <tr> 
+								    <td> <label>Email: </label> </td> 
+								    <td> <input type="email" name="email" id="email" required placeholder="Input a Valid Email"/> </td>
+							    </tr>
+							    <tr> 
+								    <td> <label>Name: </label> </td> 
+								    <td> <input type="text" name="name" id="name" required placeholder="Name"/> </td>
+							    </tr>
+							    <tr>
+								    <td> <label>Surname: </label> </td>
+								    <td> <input type="text" name="surname" id="surname" required placeholder="Surname"/> </td>
+							    </tr>
+                            </table>
+                            <table>
+                                <tr>
+                                    <td> <label id="error" class="rerror"></label> </td>
+                                </tr>
+                                <tr id="lr">
+								    <td> <input type="submit" name="register" value="Register" class="register"/> </td>
+							    </tr>
+                            </table>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>
+                Joseph Borg &#169; 2014
+            </p>
+        </footer>
+
+    </body>
+</html>
