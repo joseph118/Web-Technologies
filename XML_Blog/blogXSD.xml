@@ -1,0 +1,302 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="XSL/blogXSL.xsl"?>
+<blog xmlns:auth="www.josephborgcmt3313.wordpress.com/author" 
+xmlns:pst="www.josephborgcmt3313.wordpress.com/post" 
+xmlns:pgcmt="www.josephborgcmt3313.wordpress.com/pagecomment" 
+xmlns:pstcmt="www.josephborgcmt3313.wordpress.com/postcomment" 
+xmlns:pg="www.josephborgcmt3313.wordpress.com/page" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="XSD/blogXSD.xsd">
+
+	<blog_authors>
+		<auth:author authID="A01">
+			<auth:name>Joseph</auth:name>
+			<auth:surname>Borg</auth:surname>
+			<auth:date_joined>2013-10-10</auth:date_joined>
+		</auth:author>
+		<auth:author authID="A02">
+			<auth:name>Micheal</auth:name>
+			<auth:surname>Grech</auth:surname>
+			<auth:date_joined>2013-01-10</auth:date_joined>
+		</auth:author>
+		<auth:author authID="A03">
+			<auth:name>Abraham</auth:name>
+			<auth:surname>Azzopardi</auth:surname>
+			<auth:date_joined>2013-10-12</auth:date_joined>
+		</auth:author>
+		<auth:author authID="A04">
+			<auth:name>Joe</auth:name>
+			<auth:surname>Mizzi</auth:surname>
+			<auth:date_joined>2013-10-10</auth:date_joined>
+		</auth:author>
+		<auth:author authID="A05">
+			<auth:name>Abram</auth:name>
+			<auth:surname>Howard</auth:surname>
+			<auth:date_joined>2013-10-10</auth:date_joined>
+		</auth:author>
+		<auth:author authID="A06">
+			<auth:name>Acker</auth:name>
+			<auth:surname>Camilleri</auth:surname>
+			<auth:date_joined>2013-10-10</auth:date_joined>
+		</auth:author>
+		<auth:author authID="A07">
+			<auth:name>Adam</auth:name>
+			<auth:surname>Vella</auth:surname>
+			<auth:date_joined>2013-10-10</auth:date_joined>
+		</auth:author>
+		<auth:author authID="A08">
+			<auth:name>Pawlu</auth:name>
+			<auth:surname>Frendo</auth:surname>
+			<auth:date_joined>2013-10-10</auth:date_joined>
+		</auth:author>
+		<auth:author authID="A09">
+			<auth:name>Marvic</auth:name>
+			<auth:surname>Grima</auth:surname>
+			<auth:date_joined>2013-10-10</auth:date_joined>
+		</auth:author>
+	</blog_authors>
+	<blog_pages>
+		<!-- Page with author ID as attribute-->
+		<pg:page pgID="PG1" created_by="A01">
+			<!-- Page Posts -->
+			<pst:post pstID="P01">
+				<pst:title>Up Up and Away!</pst:title>
+				<pst:date>2013-11-10</pst:date>
+				<pst:update>2013-12-10</pst:update>
+				<pst:paragraph>
+					<pst:text>
+						Took the plunge. Dealing with the fall-out. 
+						About to secure my freedom from the evil tentacled monster. 
+						Takes 12 steps, but I hit a brick wall at 8. 
+						Took time off to recuperate and recover my energy. 
+					</pst:text>
+					<pst:image>photo02.jpg</pst:image>
+					<pst:image>photo01.jpg</pst:image>
+					<pst:reference>www.test.com</pst:reference>
+					<pst:reference>www.test2.com</pst:reference>
+				</pst:paragraph>
+				<pst:paragraph>
+					<pst:text>
+						Now back from paradise, rejuvenated and ready to take on the beast again. 
+						All eyes on the prize, one more trip to deliver the coup de grace to that other beast in the west.
+						Once that's done, its just a matter of time and protocol until the next step is reached.
+						Its scary and new, but isn't that just what makes it all so deliciously exciting? 
+					</pst:text>
+				</pst:paragraph>
+			</pst:post>
+			<pst:post pstID="P02">
+				<pst:title>Do Nots</pst:title>
+				<pst:date>2013-12-10</pst:date>
+				<pst:update>2013-12-10</pst:update>
+				<pst:paragraph>
+					<pst:text>
+						Spurred on by my observations at work, I have come up with a list of things to avoid as a doctor in a hospital setting (especially for interns and medical students): 
+						1. Don't wear jeans under your white coat. Its unprofessional, even though it may be more comfortable and convenient. 
+						2. Don't roll up the sleeves of your white coat. You're not a butcher. 
+						3. Don't wear a customised operating theatre cap. You only earn that once you're the boss. 
+						4. Don't drape a stethoscope over your shoulders as a medical student when its clear that you have no idea what to do with it. 
+						5. For the ladies - don't put on lots of makeup and perfume. Especially medical students. 
+						I don't worry about the interns, because after a few on-calls they spontaneously eliminate that aspect of their morning routine. 
+						6. Interns - don't spend all day long socialising over cups of coffee. 
+						Yes, your existence here is trivial and your job mostly mindless and routine, but that doesn't mean you should be flaunting the fact that you have no work to do. 
+						That will just get you into trouble. 
+						7. Do not write short, incomprehensible patient notes. 
+						You haven't earned that right just yet. 
+						Only the boss can write something he or she only understands and not be criticised for it. 
+						Because its HIS/HER patient, not yours you little scoundrel. 
+						8. Don't show up later than your seniors. 
+						That may sound like common sense but surprisingly still occurs, requiring a prompt kick up the arse on morning rounds. 
+						9. Do not forget to show the proper respect to anyone who is more senior than you, be it Doctor, Nurse or even orderly. 
+						They have been around for much longer than you have, and have seen many junior doctors come and go. You're nothing special. 
+						10. Don't give up on medicine. Even though you may take a lot of abuse, the money and hours are not that great, and the perceived public worth of the physician is ever-diminishing; 
+						it can still be a very rewarding profession. Nothing is more fulfilling than helping another human being out when they need it the most. 
+						A lot of people go out of their way to do stuff like that for free out of their own time. You get paid to do it, so count yourself lucky. 
+					</pst:text>
+					<pst:image>photo01.jpg</pst:image>
+					<pst:reference>www.test.com</pst:reference>
+				</pst:paragraph>
+				<pst:paragraph>
+					<pst:text>
+						Dual Paragraph
+					</pst:text>
+					<pst:image>photo01.jpg</pst:image>
+					<pst:reference>www.test.com</pst:reference>
+				</pst:paragraph>
+			</pst:post>
+		</pg:page>
+		<pg:page pgID="PG2" created_by="A02">
+			<!-- Page Posts -->
+			<pst:post pstID="P03">
+				<pst:title>Times they are a changin'</pst:title>
+				<pst:date>2013-11-10</pst:date>
+				<pst:update>2013-12-10</pst:update>
+				<pst:paragraph>
+					<pst:text>
+						Major changes have recently occured in my life, both personally and professionally. 
+						We're approaching five years since the inception of this blog, and going back to read the posts from May '04 is quite the experience. 
+						I suppose its what diaries and journals are for, the chance to go back and read out your thoughts and ideas from another time. 
+						Kind of like mental time travel. One thing is for sure, I am not who I was then. In fact, I am not who I was last year or the year before that. 
+						I may have some (we shed and create a lot of cells frequently) of the bodily composition of that person but we are definitely on different wavelengths. 
+						This whole blogging business started off as a documentation of odd and quirky ideas I might have. I had a lot of time on my hands back then, hence the frequency of the posts. 
+						With time, the posts have decreased in number but have also slightly sharpened in focus. 
+						They may still be random and don't generally adhere to one unified theme, but this thing was meant to be disjointed and arbitrary anyway. 
+						I know blogging has pretty much gone out of style these days, but I never meant for this to be stylish. 
+						The more I read my old posts, the more I believe that continuing to write here if only to be able to re-read it later is worthwhile. 
+						These next few lines (in no particular order) are for future perusing: - United are in the Champions league final against Barcelona for a shot at retaining the cup. 
+						I believe we are going to win. Did we? I hope it was a good game. - You've just moved out of home and are currently adjusting to having your own family. 
+						Its terrifying and exciting all at once. Having more or less settled now, you have found that through all of this you've discovered that you have an affinity for furniture shopping. 
+						Who would've thunk it. - You're starting studying for your MRCS part B soon. The plan is to pass it first time. 
+						I hope that reading this in the future, you remember how it felt to be looking ahead to that. I also hope that you passed. 
+						- You have accumulated a bit of debt, but are confident of repaying it all very soon. I hope that when you re-read this, it will have been replaced by a good amount of savings. 
+						- You are still basking in the glory of having had the best wedding of all time. 
+						- One and a half years in your current job and counting. Still on track with the initial estimate of two to three years in Bahrain followed by training abroad. So, how did that work out then? 
+						- 1st on call, sleepless nights at the hospital working a 1 in 4 rota. Not so bad, considering what you've been through. 
+						I hope that when you read this you have had a hell of a lot more experience in operating and are no longer at junior level. 
+						A few more personal things I could've documented here, but I'd rather leave them out of the public arena. 
+						Have to run now, but I hope that list makes for interesting reading at some point down the line.
+					</pst:text>
+				</pst:paragraph>
+			</pst:post>
+			<pst:post pstID="P04">
+				<pst:title>Brighter Days Ahead</pst:title>
+				<pst:date>2013-11-10</pst:date>
+				<pst:update>2013-12-10</pst:update>
+				<pst:paragraph>
+					<pst:text>
+						Tough times, these. Resolution of conflicts on many fronts helps, but more is to come. 
+						Once we've jetted off east things will really start looking up. But until then: paint, parking, wood, tables, chairs, sardar, food, drink, lists, healthy doses of work and many more.. 
+						We're getting there.
+					</pst:text>
+				</pst:paragraph>
+			</pst:post>
+		</pg:page>
+		<pg:page pgID="PG3" created_by="A03">
+			<!-- Page Posts -->
+			<pst:post pstID="P05">
+				<pst:title>Solve for X: Help us work towards a radically better future</pst:title>
+				<pst:date>2013-11-10</pst:date>
+				<pst:update>2013-12-10</pst:update>
+				<pst:paragraph>
+					<pst:text>
+						If we’re going to solve some of the world’s biggest problems, we need more people and teams to take on "moonshots"
+						—audacious projects that create 10x improvement, not 10 percent. Part of that involves encouraging and celebrating the audacity of the attempt. 
+						So last week we partnered with Majority Leader Eric Cantor and Democratic Whip Steny Hoyer to run a special session of Solve for X on Capitol Hill in Washington, D.C., 
+						to discuss and debate audacious science and technology moonshots that could transform the world.
+					</pst:text>
+				</pst:paragraph>
+			</pst:post>
+		</pg:page>
+	</blog_pages>
+	<all_comments>
+		<!-- Page Comments -->
+		<pgcmt:comment pgcmtID="PGC01" comment_page="PG1">
+			<pgcmt:name>Jackson</pgcmt:name>
+			<pgcmt:message>Keep it up</pgcmt:message>
+			<pgcmt:time_stamp>2013-05-10</pgcmt:time_stamp>
+		</pgcmt:comment>
+		<pgcmt:comment pgcmtID="PGC02" comment_page="PG1">
+			<pgcmt:name>Willian</pgcmt:name>
+			<pgcmt:message>Improve the xml</pgcmt:message>
+			<pgcmt:time_stamp>2013-06-10</pgcmt:time_stamp>
+		</pgcmt:comment>
+		
+		<!-- Post Comments -->
+		<pstcmt:comment pstcmtID="PSTC01" comment_post="P01">
+			<pstcmt:name>Jackson</pstcmt:name>
+			<pstcmt:message>
+				Frank Herbert's 1973 novel Hellstrom's Hive is considered to be one of his better ones. It is one of the two works currently included in the Gollancz SF Masterworks series for instance.
+			</pstcmt:message>
+			<pstcmt:time_stamp>2013-07-10</pstcmt:time_stamp>
+		</pstcmt:comment>
+		<pstcmt:comment pstcmtID="PSTC02" comment_post="P01">
+			<pstcmt:name>Willian</pstcmt:name>
+			<pstcmt:message>
+				The other being the inevitable Dune. My copy is an earlier reissue by Tor to coincide with some of the Brian Herbert and Kevin J. Anderson Dune expansions.
+			</pstcmt:message>
+			<pstcmt:time_stamp>2013-12-22</pstcmt:time_stamp>
+		</pstcmt:comment>
+		<pstcmt:comment pstcmtID="PSTC03" comment_post="P01">
+			<pstcmt:name>Willian</pstcmt:name>
+			<pstcmt:message>
+				 It first appeared in serialized form in Galaxy between November 1972 and March 1973 under the title Project 40 and saw release as a full novel not long after.
+			</pstcmt:message>
+			<pstcmt:time_stamp>2013-10-10</pstcmt:time_stamp>
+		</pstcmt:comment>
+		<pstcmt:comment pstcmtID="PSTC04" comment_post="P02">
+			<pstcmt:name>Benny</pstcmt:name>
+			<pstcmt:message>
+				I first read it in 2007 and I think that it was as close as Herbert would come to full blown horror in his career.
+			</pstcmt:message>
+			<pstcmt:time_stamp>2013-10-10</pstcmt:time_stamp>
+		</pstcmt:comment>
+		<pstcmt:comment pstcmtID="PSTC05" comment_post="P02">
+			<pstcmt:name>Anonymous</pstcmt:name>
+			<pstcmt:message>
+				There is something incredibly creepy about the novel.
+			</pstcmt:message>
+			<pstcmt:time_stamp>2013-05-10</pstcmt:time_stamp>
+		</pstcmt:comment>
+		<pstcmt:comment pstcmtID="PSTC06" comment_post="P03">
+			<pstcmt:name>Anonymous</pstcmt:name>
+			<pstcmt:message>
+				It literally makes your skin crawl.
+			</pstcmt:message>
+			<pstcmt:time_stamp>2013-09-10</pstcmt:time_stamp>
+		</pstcmt:comment>
+		<pstcmt:comment pstcmtID="PSTC07" comment_post="P01">
+			<pstcmt:name>Anonymous</pstcmt:name>
+			<pstcmt:message>
+				It literally makes your skin crawl.
+			</pstcmt:message>
+			<pstcmt:time_stamp>2013-09-10</pstcmt:time_stamp>
+		</pstcmt:comment>
+		<pstcmt:comment pstcmtID="PSTC08" comment_post="P01">
+			<pstcmt:name>Anonymous</pstcmt:name>
+			<pstcmt:message>
+				It literally makes your skin crawl.
+			</pstcmt:message>
+			<pstcmt:time_stamp>2013-07-10</pstcmt:time_stamp>
+		</pstcmt:comment>
+		<pstcmt:comment pstcmtID="PSTC09" comment_post="P01">
+			<pstcmt:name>Anonymous</pstcmt:name>
+			<pstcmt:message>
+				It literally makes your skin crawl.
+			</pstcmt:message>
+			<pstcmt:time_stamp>2013-01-10</pstcmt:time_stamp>
+		</pstcmt:comment>
+		<pstcmt:comment pstcmtID="PSTC10" comment_post="P01">
+			<pstcmt:name>Anonymous</pstcmt:name>
+			<pstcmt:message>
+				It literally makes your skin crawl.
+			</pstcmt:message>
+			<pstcmt:time_stamp>2013-03-10</pstcmt:time_stamp>
+		</pstcmt:comment>
+		<pstcmt:comment pstcmtID="PSTC11" comment_post="P01">
+			<pstcmt:name>Anonymous</pstcmt:name>
+			<pstcmt:message>
+				It literally makes your skin crawl.
+			</pstcmt:message>
+			<pstcmt:time_stamp>2013-09-10</pstcmt:time_stamp>
+		</pstcmt:comment>
+		<pstcmt:comment pstcmtID="PSTC12" comment_post="P01">
+			<pstcmt:name>Anonymous</pstcmt:name>
+			<pstcmt:message>
+				It literally makes your skin crawl.
+			</pstcmt:message>
+			<pstcmt:time_stamp>2013-06-10</pstcmt:time_stamp>
+		</pstcmt:comment>
+		<pstcmt:comment pstcmtID="PSTC13" comment_post="P01">
+			<pstcmt:name>Anonymous</pstcmt:name>
+			<pstcmt:message>
+				It literally makes your skin crawl.
+			</pstcmt:message>
+			<pstcmt:time_stamp>2013-03-10</pstcmt:time_stamp>
+		</pstcmt:comment>
+		<pstcmt:comment pstcmtID="PSTC14" comment_post="P01">
+			<pstcmt:name>Anonymous</pstcmt:name>
+			<pstcmt:message>
+				It literally makes your skin crawl.
+			</pstcmt:message>
+			<pstcmt:time_stamp>2013-07-10</pstcmt:time_stamp>
+		</pstcmt:comment>
+	</all_comments>
+</blog>
