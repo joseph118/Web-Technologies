@@ -1,0 +1,10 @@
+{
+	"brand":
+	[
+		{ "ID":"001" , "brand":"Diesel" },
+		{ "ID":"002" , "brand":"Energie" },
+		{ "ID":"003" , "brand":"Gucci" },
+		{ "ID":"004" , "brand":"Miss Sixty" },
+		{ "ID":"006" , "brand":"Mister Joseph" }
+	]
+}
