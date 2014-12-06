@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema targetNamespace="www.josephborgcmt3313.wordpress.com/author" 
+xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+xmlns:auth="www.josephborgcmt3313.wordpress.com/author">
+
+	<xs:element name="author">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="auth:name" minOccurs="1" maxOccurs="1"/>
+				<xs:element ref="auth:surname" minOccurs="1" maxOccurs="1"/>
+				<xs:element ref="auth:date_joined" minOccurs="1" maxOccurs="1"/>
+			</xs:sequence>
+			<xs:attribute name="authID" use="required" type="xs:ID" />
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:element name="name" type="xs:string" />
+	<xs:element name="surname" type="xs:string" />
+	<xs:element name="date_joined" type="xs:date" />
+
+	
+</xs:schema>
