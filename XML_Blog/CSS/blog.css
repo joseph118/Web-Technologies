@@ -1,0 +1,282 @@
+body
+{
+	font-family: Arial, sans-serif;	
+	font-size: 15px;
+	color: #000;
+	text-align: center;
+	margin: auto;
+	overflow: auto;
+	width: 1024px;
+	background:#000019 url('../CSS/background.jpg') no-repeat;
+}
+
+    header {
+		font-family: Helvetica, Arial, sans-serif;
+		width: 100%;
+		height: 100px;
+		
+		margin: 5px;
+		padding: 20px;
+
+		border:1px solid;
+		box-shadow: 1.5px 1.5px 0.5px #888888;
+		
+		background: #fff;
+    }
+    	
+    section {
+		width: 100%;
+		
+		margin: 5px;
+		padding: 20px;
+		
+		text-align: left;
+		
+		border:1px solid;
+		box-shadow: 1.5px 1.5px 0.5px #888888;
+	
+		background: #fff;
+	}            
+        
+        
+    footer {
+		margin: 5px;
+		padding: 20px;
+		
+		width: 100%;
+		height: 25px;
+		
+		border:1px solid;
+		box-shadow: 1.5px 1.5px 0.5px #888888;
+		
+		background: #fff;
+    }
+
+	
+#content1 {
+	width: 624px;
+	border:8px solid #E0EEEE;
+}
+
+#content2 {
+	padding: 10px;
+	width: 350px;
+	background: #fff;
+	border:8px solid #E0EEEE;
+	float:right;
+}
+
+.table {
+	font-size: 15px;
+}
+
+.whitespace {
+	width: 50px;
+}
+	
+#post {
+	background: #fff;
+
+	border-radius: 2px;
+	margin: 20px;
+	padding: 10px;
+}
+
+#title {
+	margin: 10px;
+}
+
+#postHeader {
+	margin: 10px;
+}
+
+#comments {
+	margin: 10px;
+	text-align:left;
+}
+
+.eachComment {
+	width: 80%;
+	margin: 10px;
+	padding: 5px;
+	border-radius: 5px;
+	background-color: #E0EEEE;
+}
+
+.comment {
+	margin: 5px;
+	padding: 5px;
+}
+
+h2 {
+	font-size: 18px;
+}
+
+th {
+	text-align:left;
+}
+
+#authors {
+	width: 180px;
+}
+
+#listDate {
+	width: 120px;
+}
+
+.txbSearch {
+	margin: 0;
+	padding: 5px 15px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size:15px;
+	border:1px solid #696969;
+	border-radius: 5px;
+	width: 250px;
+}
+
+/* the transitions here are used for the user when he decides to hide the comments */
+/* therefore the transitions on start up aren't used  */
+
+.allComments{
+	height: auto;
+	max-height: 0%;
+	opacity: 0; 
+	visibility: hidden; 
+	top: -10px; 
+	transition-duration: 0, 0, 0; 
+	transition-property: opacity, top, visibility; 
+	transition-delay: 0, 0, 0; 
+    -webkit-transition: all .3s ease;
+    -moz-transition: all .3s ease;
+    -o-transition: all .3s ease;
+    -ms-transition: all .3s ease;
+    transition: all .3s ease;
+	overflow: auto;
+}
+
+/* check is used for the comments to slide down */
+
+.check {
+	height: auto;
+	max-height: 100%;
+	opacity: 1; 
+	visibility: visible; 
+	top: 0px; 
+	transition-duration: 200ms, 200ms, 0; 
+	transition-property: opacity, top, visibility; 
+	transition-delay: 100ms, 100ms, 0; 
+    -webkit-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    -ms-transition: all 1s ease;
+    transition: all 1s ease;
+}
+
+.commentButton {
+	background: #85b2d3 ;
+	color:black;
+	
+	margin-left: 20px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	font-size: 15px;
+	width: 120px;
+	height: 20px;
+	border: 1 solid #00688B;
+	border-radius: 10px;
+	outline: none;
+}
+
+.commentButton:hover {
+	background: cyan;
+
+	animation:myAnim 1s;
+	-webkit-animation:myAnim 1s
+}
+
+.commentButton:active {
+	background: -webkit-gradient(linear, left top, left bottom, from(#00688B), to(#85b2d3));
+	background: -moz-linear-gradient(top,  #00688B,  #6b6b6b);
+}
+
+@keyframes myAnim
+{
+from {background:00688B;}
+to {background:cyan;}
+}
+
+@-webkit-keyframes myAnim
+{
+from {background:00688B;}
+to {background:cyan;}
+}
+
+.allComments::-webkit-scrollbar {
+	width: 10px;
+	background-color: #F5F5F5;
+}
+ 
+.allComments::-webkit-scrollbar-track {
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	background-color: #F5F5F5;
+}
+ 
+.allComments::-webkit-scrollbar-thumb {
+	background-color: #00688B;	
+	background-image: -webkit-linear-gradient(45deg,
+	                                          rgba(255, 255, 255, .2) 25%,
+											  transparent 25%,
+											  transparent 50%,
+											  rgba(255, 255, 255, .2) 50%,
+											  rgba(255, 255, 255, .2) 75%,
+											  transparent 75%,
+											  transparent)
+}
+
+.imgPost {
+	margin: 0 0 15 50;
+	padding: 5px;
+	font-size: 15px;
+	
+	width: 100px;
+	height: 100px;
+	-webkit-transition: 0.5s ease-in-out;
+	-moz-transition: 0.5s ease-in-out;
+	-o-transition: 0.5s ease-in-out;
+	transition: 0.5s ease-in-out;
+}
+
+.imgPost:hover{
+	width: 400px;
+	height: 400px;
+	-webkit-transition: 1s ease-in-out;
+	-moz-transition: 1s ease-in-out;
+	-o-transition: 1s ease-in-out;
+	transition: 1s ease-in-out;
+
+}
+
+.refPost {
+	background-color: #fff;
+	border-radius: 5px;
+	margin: 0 0 15 25;
+	padding: 5px;
+	font-size: 15px;
+}
+
+#paragraph {
+	background-color: #fff;
+	border-radius: 5px;
+	margin: 0 0 15 15;
+	padding: 5px;
+	font-size: 15px;
+}
+
+a {
+	margin-left: 10px;
+	text-decoration: none;
+}
+
+#hrComment {
+	border-color: #009ACD;
+}
