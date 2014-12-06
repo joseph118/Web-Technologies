@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html>
+    <head>
+	    <title>Clothes</title>
+        <link rel="stylesheet" type="text/css" href="css/index.css">
+        <script src="javascript/jquery-git.js"> </script>
+        <script>
+
+            var gender = new Array();
+            var genderV = new Array();
+            var brand = new Array();
+            var brandV = new Array();
+            var category = new Array();
+            var categoryV = new Array();
+
+            // 0 = not selected
+            // 1 = selected
+            //localStorage.removeItem("purchase");
+
+            function productClick(product) {
+                // Show blanket & product
+                $('#blanket').show();
+                $('#showProduct').show();
+
+                var getID = $(product).get(0).id;
+
+
+                // Display Product
+                $.getJSON("json/products.json", function (data) {
+                    $.each(data, function (key, val) {
+                        for (var i = 0; i < val.length; i++) {
+                            if (val[i].ID == getID) {
+
+                                var getStock = val[i].stock;
+                                if (localStorage.getItem("purchase") != null) {
+                                    getStock = checkPurchaseStock(val[i].ID, val[i].stock);
+                                    if (getStock == 0) {
+                                        getStock = "Out Of Stock";
+                                    }
+                                }
+
+                                // Display Product
+                                var image = ' <img src="images/products/' + val[i].image + '" />';
+                                $("#showProduct").append(image + "<p>" + val[i].name + "</p> <p>" + val[i].description + "</p> <p> Quantity: " + getStock + "</p> <p>€ " + val[i].price + "</p>");
+
+
+
+                                // Display Basket Button
+                                //$("#showProduct").append("<div id='addToCart'> <label>Quantity: </label> <input id='qty' type='text' name='quantity' min='1'> <label id='error'></label> <button id='add' onclick='addToCart(" + $(product).get(0).id + "); return false;'>Add To Cart</button> </div>");
+								$("#showProduct").append("<div id='addToCart'> <label>Quantity: </label> <input id='qty' type='text' name='quantity' min='1'> <label id='error'></label> <button id='add' class='" + getID + "' onclick='addToCart(this); return false;'>Add To Cart</button> </div>");
+
+                            }
+                        }
+                    });
+                });
+
+            }
+
+            function addToCart(btn) {
+				var getID = $(btn).attr('class');
+                var getVal = document.getElementById("qty").value;
+                var parse = parseInt(getVal) || "";
+				$("#error").empty();
+                if (parse != "") {
+                    // if passed check if it does not exceed the stock limit
+                    $.getJSON("json/products.json", function (data) {
+                        $.each(data, function (key, val) {
+                            for (var i = 0; i < val.length; i++) {
+                                if (val[i].ID == getID) {
+                                    // Check if negative
+                                    if (parse < 0) {
+                                        $("#error").append(" Error! Negative Input! ");
+                                    } else {
+
+                                        var getStock = val[i].stock;
+                                        if (localStorage.getItem("purchase") != null) {
+                                            getStock = checkPurchaseStock(val[i].ID, val[i].stock);
+                                        }
+
+                                        if (parseInt(getStock) > parse || parseInt(getStock) == parse) {
+                                            // Currently in stock
+                                            // Check if user is logged in
+
+                                            if (sessionStorage.getItem("login") != null) {
+                                                // User is logged in
+                                                // Store in Cart
+
+                                                // Get Username
+                                                var user = sessionStorage.getItem("login");
+
+                                                // Get local Storage & convert to array 
+                                                var cart = new Array();
+                                                var int = 0;
+
+                                                // Check if Storage is Empty
+                                                if (localStorage.getItem(user + "cart") == null) {
+                                                    cart[int] = val[i].ID;
+                                                    int++;
+                                                    cart[int] = parse;
+
+                                                    // Parse and store in local Storage;
+                                                    localStorage.setItem(user + "cart", JSON.stringify(cart));
+
+                                                    $("#error").append(" Added to Cart ");
+                                                } else {
+                                                    // Check if it Exists in Cart
+                                                    var isFound = false;
+                                                    cart = JSON.parse(localStorage.getItem(user + "cart"));
+
+                                                    for (var p = 0; p < cart.length; p++) {
+                                                        if (cart[p] == val[i].ID) {
+                                                            p++;
+
+                                                            var totalQTY = parseInt(cart[p]) + parse;
+                                                            if (getStock >= totalQTY) {
+                                                                // Have Enough
+                                                                cart[p] = totalQTY;
+                                                                // Parse and store in local Storage;
+                                                                localStorage.setItem(user + "cart", JSON.stringify(cart));
+                                                                $("#error").append(" Added to Cart ");
+                                                            } else {
+                                                                // Does Not Have Enough
+                                                                $("#error").append(" Item Exceeds the Amount in Stock! ");
+                                                            }
+                                                            isFound = true;
+                                                        } else {
+                                                            p++;
+                                                        }
+                                                    }
+
+                                                    // if not found add to cart
+                                                    if (isFound == false) {
+                                                        int = cart.length;
+
+                                                        cart[int] = val[i].ID;
+                                                        int++;
+                                                        cart[int] = parse;
+
+                                                        // Parse and store in local Storage;
+                                                        localStorage.setItem(user + "cart", JSON.stringify(cart));
+
+                                                        $("#error").append(" Added to Cart ");
+                                                    }
+                                                }
+                                            } else {
+                                                // User is not logged in
+                                                $("#error").append(" Please Log in! ");
+                                            }
+                                        } else {
+                                            // Currently out of stock or doesn't have the amount ordered
+                                            if (val[i].stock == 0) {
+                                                // Out of stock
+                                                $("#error").append(" Out of Stock! ");
+                                            } else {
+                                                // Doesn't have the amount ordered
+                                                $("#error").append(" Value exceeds the Amount in Stock! ");
+                                            }
+
+                                        }
+                                    }
+                                }
+                            }
+                        });
+                    });
+                }
+                else {
+                    $("#error").append(" Incorrect Input! ");
+                }
+            }
+
+            function checkPurchaseStock(ID, Stock) {
+                var purch = new Array();
+                purch = JSON.parse(localStorage.getItem("purchase"));
+                for (var q = 0; purch.length > q; q++) {
+                    if (purch[q] == ID) {
+                        q++;
+                        Stock = parseInt(Stock) - parseInt(purch[q]);
+                        return Stock;
+                    } else {
+                        q++;
+                    }
+                }
+                return Stock;
+            }
+
+            $(document).ready(function () {
+
+                if (sessionStorage.getItem("login") != null) {
+                    $("#signinli").hide();
+                    $("#signoutli").show();
+                    $("#cartli").show();
+                    $("#greetli").show();
+                    $("#welcome").text("Welcome " + sessionStorage.getItem("login"));
+                } else {
+                    $("#signinli").show();
+                    $("#signoutli").hide();
+                    $("#cartli").hide();
+                    $("#greetli").hide();
+                }
+
+                $(".signout").click(function () {
+                    sessionStorage.clear();
+                    $("#welcome").text("");
+                    location.reload();
+                });
+
+                $("#blanket").click(function () {
+                    // Hide blanket & product
+                    $('#blanket').hide();
+                    $('#showProduct').hide();
+
+                    // Clear Div
+                    $('#showProduct').empty();
+                });
+
+                $("#search").keyup(function () {
+                    if ($(this).val() == "") {
+                        filter(null);
+                    }
+                });
+
+                // Get Gender
+                $.getJSON("json/gender.json", function (data) {
+                    $.each(data, function (key, val) {
+                        // loop into val
+                        for (var i = 0; i < val.length; i++) {
+                            $("#gender").append("<li> <input type='checkbox' class='chkGender' value='" + val[i].ID + "' onclick='checkGender(this)' >" + "&nbsp" + "&nbsp" + val[i].gender + "</li>");
+                            gender[i] = val[i].ID;
+                            genderV[i] = "0";
+
+                        }
+                    });
+                });
+
+                // Get brand
+                $.getJSON("json/brand.json", function (data) {
+                    $.each(data, function (key, val) {
+                        // loop into val
+                        for (var i = 0; i < val.length; i++) {
+                            $("#brands").append("<li> <input type='checkbox' class='chkBrand' value='" + val[i].ID + "' onclick='checkBrand(this)' >" + "&nbsp" + "&nbsp" + val[i].brand + "</li>");
+                            brand[i] = val[i].ID;
+                            brandV[i] = "0";
+                        }
+                    });
+                });
+
+                // Get Category
+                $.getJSON("json/category.json", function (data) {
+                    $.each(data, function (key, val) {
+                        // loop into val
+                        for (var i = 0; i < val.length; i++) {
+                            $("#category").append("<li> <input type='checkbox' class='chkCategory' value='" + val[i].ID + "' onclick='checkCategory(this)' >" + "&nbsp" + "&nbsp" + val[i].type + "</li>");
+                            category[i] = val[i].ID;
+                            categoryV[i] = "0";
+                        }
+                    });
+                });
+
+                // Display Products
+                $.getJSON("json/products.json", function (data) {
+                    $.each(data, function (key, val) {
+                        // loop into val
+                        for (var i = 0; i < val.length; i++) {
+                            var image = ' <img src="images/products/' + val[i].image + '" />';
+
+                            $("#product").append("<li> <a href='#' onClick='productClick(this); return false;' id='" + val[i].ID + "'>" + image + "<h4>" + val[i].name + "</h4>" + "<p>€ " + val[i].price + "</p></a></li>");
+							
+						}
+                    });
+                });
+
+            });
+
+            
+
+            function checkGender(checkbox) {
+                if (checkbox.checked) {
+                    // Loop into first array get index and change value to 1
+                    for (var i = 0; i < gender.length; i++) {
+                        if (checkbox.value == gender[i]) {
+                            genderV[i] = 1;
+                        }
+                    }
+                } else {
+                    // Loop into first array get index and change value to 0
+                    for (var i = 0; i < gender.length; i++) {
+                        if (checkbox.value == gender[i]) {
+                            genderV[i] = 0;
+                        }
+                    }
+                }
+                filter(null);
+            }
+
+            function checkBrand(checkbox) {
+                if (checkbox.checked) {
+                    for (var i = 0; i < brand.length; i++) {
+                        if (checkbox.value == brand[i]) {
+                            brandV[i] = 1;
+                        }
+                    }
+                } else {
+                    for (var i = 0; i < brand.length; i++) {
+                        if (checkbox.value == brand[i]) {
+                            brandV[i] = 0;
+                        }
+                    }
+                }
+                filter(null);
+            }
+
+            function checkCategory(checkbox) {
+                if (checkbox.checked) {
+                    for (var i = 0; i < category.length; i++) {
+                        if (checkbox.value == category[i]) {
+                            categoryV[i] = 1;
+                        }
+                    }
+                } else {
+                    for (var i = 0; i < category.length; i++) {
+                        if (checkbox.value == category[i]) {
+                            categoryV[i] = 0;
+                        }
+                    }
+                }
+                filter(null);
+            }
+
+            function filter(x) {
+                // Needed to Loop into Every Array
+                var getGender = new Array;
+                var getBrand = new Array;
+                var getCategory = new Array;
+                
+                // Get Gender IDs
+                var counter = 0;
+                for (var i = 0; i < genderV.length; i++) {
+                    if (genderV[i] == "1") {
+                        getGender[counter] = gender[i];
+                        counter++;
+                    }
+                }
+
+                // Get Brand IDs
+                counter = 0;
+                for (var i = 0; i < brandV.length; i++) {
+                    if (brandV[i] == "1") {
+                        getBrand[counter] = brand[i];
+                        counter++;
+                    }
+                }
+
+                // Get Category IDs
+                counter = 0;
+                for (var i = 0; i < categoryV.length; i++) {
+                    if (categoryV[i] == "1") {
+                        getCategory[counter] = category[i];
+                        counter++;
+                    }
+                }
+                document.getElementById('product').innerHTML = "";
+                // Clear Div HTML
+                $("#product").empty();
+
+                // Display Filtered Products
+                $.getJSON("json/products.json", function (data) {
+                    $.each(data, function (key, val) {
+                        // loop into val
+                        for (var i = 0; i < val.length; i++) {
+                            // Loop into Gender
+                            // Loop into Brands
+                            // Loop into Categories
+                            if (check(getGender, val[i].genderID) && check(getBrand, val[i].brandID) && check(getCategory, val[i].categoryID)) {
+                                // Then Append to HTML
+                                if (x == null) {
+                                    var image = ' <img src="images/products/' + val[i].image + '" />';
+                                    $("#product").append("<li> <a href='#' onClick='productClick(this); return false;' id='" + val[i].ID + "'>" + image + "<h4>" + val[i].name + "</h4>" + "<p>€ " + val[i].price + "</p></a></li>");
+                                } else {
+                                    if (val[i].name.toLowerCase().indexOf(x.toLowerCase()) > -1) {
+                                        var image = ' <img src="images/products/' + val[i].image + '" />';
+                                        $("#product").append("<li> <a href='#' onClick='productClick(this); return false;' id='" + val[i].ID + "'>" + image + "<h4>" + val[i].name + "</h4>" + "<p>€ " + val[i].price + "</p></a></li>");
+                                    }
+                                }
+                            }
+                        }
+                    });
+                    if ($('#product').is(':empty')) {
+                        $('#product').append("<p id='error'> No Products Where Found! </p>");
+                    }
+                });
+            }
+
+            function check(array, id){
+                if(array.length == 0) {
+                    return true;
+                } else {
+                    for (var x = 0; x < array.length; x++) {
+                        if(array[x] == id) {
+                            return true;
+                        }
+                    }
+                }
+                return false;
+            }
+
+        </script>
+    </head>
+
+    <body id="page">
+        <div id="bar">
+                <ul>
+                    <li id="signinli">
+                        <a id="account" href="account.html">Sign In</a>
+                    </li>
+                    <li id="signoutli">
+                        <a id="account" href="#" class="signout">Sign Out</a>
+                    </li>
+                    <li id="cartli">
+                        <a id="account" href="shoppingCart.html" class="cart">Shopping Cart</a>
+                    </li>
+                    <li id="greetli">
+                        <label id="welcome"></label>
+                    </li>
+                </ul>
+        </div>
+        
+        <header>
+            <div>
+                <a href="index.html"><h1>CHIC his & her Collection</h1></a>
+            </div>
+
+            <nav>
+                <ul>
+                    <li>
+                        <a href="index.html">Home</a>
+                    </li>
+                    <li>
+                        <a href="contact.html">Contact Us</a>
+                    </li>
+                    <li>
+                        <a href="clothes.html">Clothes</a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+
+        <div id="title">
+            <h2>Clothes</h2>
+        </div>
+
+        <div id="content">
+            <div id="page-wrapper">
+                <div id="menu">
+                    <div id="filter-wrapper">
+                        <br></br>
+                        <div id="button-wrapper">
+                            <input type="text" name"search" id="search" maxlength="21" placeholder="Search Products">
+                            <button id="btnSearch" onclick='filter($("#search").val())'>Search</button>
+                        </div>
+                        <br></br><br></br>
+                        <h3>Gender</h3>
+                        <ul id="gender">
+                            <!-- Load Gender from JSON -->
+                        </ul>
+                        <br></br>
+                        <h3>Brands</h3>
+                        <ul id="brands">
+                            <!-- Load Brands from JSON -->
+                        </ul>
+                        <br></br>
+                        <h3>Categories</h3>
+                        <ul id="category">
+                            <!-- Load Categories from JSON -->
+                        </ul>
+                        <br></br>
+                    </div>
+                </div>
+                <div id="product-wrapper">
+                    <ul id="product">
+                        <!-- Load Products from JSON -->
+                    </ul>
+                </div>
+                <!-- This Div is used to fix float elements -->
+                <div class="clear"></div>
+
+                <!-- Pop Up Div -->
+                <div id="blanket"></div>
+                <div id="showProduct"></div>
+
+            </div>
+        </div>
+
+        <footer>
+            <p>
+                Joseph Borg &#169; 2014
+            </p>
+        </footer>
+
+    </body>
+</html>
