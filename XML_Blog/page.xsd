@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+xmlns:pst="www.josephborgcmt3313.wordpress.com/post" 
+xmlns:ns1="www.josephborgcmt3313.wordpress.com/page" targetNamespace="www.josephborgcmt3313.wordpress.com/page">
+	
+	<xs:import namespace="www.josephborgcmt3313.wordpress.com/post" schemaLocation="post.xsd"/>
+	
+	<xs:element name="page">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="pst:post" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+			
+			<xs:attribute name="pgID" use="required" type="xs:ID"/>
+
+			<xs:attribute name="created_by" use="required" type="xs:IDREF" />
+				
+		</xs:complexType>
+	</xs:element>
+</xs:schema>
