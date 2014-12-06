@@ -1,0 +1,15 @@
+BlogDTD.xml is linked with;
+	> DTD/blogDTD.dtd
+	> XSL/blogXSL.xsl
+	> CSS/blog.css
+
+
+BlogXSD.xml is linked with;
+	> XSD/blogXSD.xsd
+		- postcomment.xsd
+		- pagecomment.xsd
+		- page.xsd
+			- post.xsd
+		- author.xsd
+	> XSL/blogXSL.xsl
+	> CSS/blog.css
