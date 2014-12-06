@@ -1,0 +1,35 @@
+{
+	"products":
+	[
+		{ "ID":"001" , "name":"White Dress" , "description":"Diesel White dress with black markings" , "price":"59.99" , "brandID":"001" , "genderID":"002" , "categoryID":"003" , "image":"DieselDress1.jpg" , "stock":"18" },
+		{ "ID":"002" , "name":"Black Dress" , "description":"Diesel Black simple dress" , "price":"59.99" , "brandID":"001" , "genderID":"002" , "categoryID":"003" , "image":"DieselDress2.jpg" , "stock":"2" },
+		{ "ID":"003" , "name":"Green Dress" , "description":"Diesel Green long Dress" ,  "price":"59.99" , "brandID":"001" , "genderID":"002" , "categoryID":"003" , "image":"DieselDress3.jpg" , "stock":"8" },
+		{ "ID":"004" , "name":"Black Coat" , "description":"Diesel black coat" , "price":"120.00" , "brandID":"001" , "genderID":"001" , "categoryID":"004" , "image":"DieselMenCoat1.jpg" , "stock":"1" },
+		{ "ID":"005" , "name":"Black Coat" , "description":"Diesel black coat" , "price":"119.00" , "brandID":"001" , "genderID":"001" , "categoryID":"004" , "image":"DieselMenCoat2.jpg" , "stock":"10" },
+		{ "ID":"006" , "name":"Black Coat" , "description":"Diesel black coat" , "price":"99.00" , "brandID":"001" , "genderID":"001" , "categoryID":"004" , "image":"DieselMenCoat3.jpg" , "stock":"4" },
+		{ "ID":"007" , "name":"Denim Jeans" , "description":"Diesel denim jeans" , "price":"89.99" , "brandID":"001" , "genderID":"001" , "categoryID":"005" , "image":"DieselMenJeans1.jpg" , "stock":"17" },
+		{ "ID":"008" , "name":"Denim Jeans" , "description":"Diesel denim jeans" , "price":"69.99" ,"brandID":"001" , "genderID":"001" , "categoryID":"005" , "image":"DieselMenJeans2.jpg" , "stock":"12" },
+		{ "ID":"009" , "name":"Blue Shirt" , "description":"Diesel blue shirt" , "price":"29.99" ,"brandID":"001" , "genderID":"001" , "categoryID":"001" , "image":"DieselMenShirt1.jpg" , "stock":"56" },
+		{ "ID":"010" , "name":"Light Blue Shirt" , "description":"Diesel light blue shirt" , "price":"49.99" ,"brandID":"001" , "genderID":"001" , "categoryID":"001" , "image":"DieselMenShirt2.jpg" , "stock":"19" },
+		{ "ID":"011" , "name":"Blue Jeans Shirt" , "description":"Diesel blue Jeans shirt" , "price":"29.99" , "brandID":"001" , "genderID":"001" , "categoryID":"001" , "image":"DieselMenShirt3.jpg" , "stock":"6" },
+		{ "ID":"012" , "name":"Checked Shirt" , "description":"Diesel checked shirt" , "price":"29.99" ,"brandID":"001" , "genderID":"001" , "categoryID":"001" , "image":"DieselMenShirt4.jpg" , "stock":"25" },
+		{ "ID":"013" , "name":"Blue T-Shirt" , "description":"Diesel blue T-Shirt" , "price":"39.99" ,"brandID":"001" , "genderID":"001" , "categoryID":"002" , "image":"DieselMenTShirt2.jpg" , "stock":"8" },
+		{ "ID":"014" , "name":"Denim Jeans" , "description":"Diesel denim jeans" , "price":"79.99" ,"brandID":"001" , "genderID":"002" , "categoryID":"005" , "image":"DieselWomanJeans1.jpg" , "stock":"34" },
+		{ "ID":"015" , "name":"Green Label Shirt" , "description":"Diesel Green Shirt" , "price":"89.99", "brandID":"001" , "genderID":"002" , "categoryID":"002" , "image":"DieselWomanTShirts1.jpg" , "stock":"1" },
+		{ "ID":"016" , "name":"Black Shirt with Print" , "description":"Diesel Black shirt with print" , "price":"29.99" , "brandID":"001" , "genderID":"002" , "categoryID":"002" , "image":"DieselWomanTShirts2.jpg" , "stock":"9" },
+		{ "ID":"017" , "name":"Grey Shirt" , "description":"Diesel Gray Shirt" , "price":"59.99" ,"brandID":"001" , "genderID":"002" , "categoryID":"002" , "image":"DieselWomanTShirts3.jpg" , "stock":"13" },
+		{ "ID":"018" , "name":"Blue/Grey Jacket" , "description":"Energie Jacket" , "price":"189.99" , "brandID":"002" , "genderID":"001" , "categoryID":"006" , "image":"EnergieMenCoat1.jpg" , "stock":"2" },
+		{ "ID":"019" , "name":"Grey Jeans" , "description":"Energie Grey Jeans" , "price":"69.99" ,"brandID":"002" , "genderID":"001" , "categoryID":"005" , "image":"EnergieMenJeans1.jpg" , "stock":"17" },
+		{ "ID":"020" , "name":"Blue Jeans" , "description":"Energie Blue Jeans" , "price":"69.99" ,"brandID":"002" , "genderID":"001" , "categoryID":"005" , "image":"EnergieMenJeans2.jpg" , "stock":"89" },
+		{ "ID":"021" , "name":"Dark Blue Jeans" , "description":"Energie Dark Blue Jeans" , "price":"59.99" ,"brandID":"002" , "genderID":"001" , "categoryID":"005" , "image":"EnergieMenJeans3.jpg" , "stock":"102" },
+		{ "ID":"022" , "name":"White T-Shirt" , "description":"Energie White T-Shirt" , "price":"29.99" , "brandID":"002" , "genderID":"001" , "categoryID":"002" , "image":"EnergieMenTShirt1.jpg" , "stock":"59" },
+		{ "ID":"023" , "name":"Blue Jeans" , "description":"Gucci Blue Jeans" , "price":"120.00" , "brandID":"003" , "genderID":"002" , "categoryID":"005" , "image":"GucciWomanJeans1.jpg" , "stock":"12" },
+		{ "ID":"024" , "name":"Black Jeans" , "description":"Gucci Black Jeans" , "price":"99.99" ,"brandID":"003" , "genderID":"002" , "categoryID":"005" , "image":"GucciWomanJeans2.jpg" , "stock":"18" },
+		{ "ID":"025" , "name":"Light Blue Jeans" , "description":"Gucci Blue Jeans" , "price":"89.99" ,"brandID":"003" , "genderID":"002" , "categoryID":"005" , "image":"GucciWomanJeans3.jpg" , "stock":"18" },
+		{ "ID":"026" , "name":"Black Dress" , "description":"Miss Sixty Black Dress" , "price":"120.00" ,"brandID":"004" , "genderID":"002" , "categoryID":"003" , "image":"MissSixtyDress1.jpg" , "stock":"28" },
+		{ "ID":"027" , "name":"Blue Stripped Dress" , "description":"Miss Sixty Blue Stripped Dress" , "price":"120.00" ,"brandID":"004" , "genderID":"002" , "categoryID":"003" , "image":"MissSixtyDress2.jpg" , "stock":"24" },
+		{ "ID":"028" , "name":"Multi Color Long Dress" , "description":"Miss Sixty Colourful Dress" , "price":"79.99" ,"brandID":"004" , "genderID":"002" , "categoryID":"003" , "image":"MissSixtyDress3.jpg" , "stock":"43" },
+		{ "ID":"029" , "name":"Black Dress" , "description":"Miss Sixty Black Dress" , "price":"89.00" ,"brandID":"004" , "genderID":"002" , "categoryID":"003" , "image":"MissSixtyDress4.jpg" , "stock":"79" },
+		{ "ID":"030" , "name":"Blue Dress" , "description":"Miss Sixty Blue Dress" , "price":"129.99" , "brandID":"004" , "genderID":"002" , "categoryID":"003" , "image":"MissSixtyDress5.jpg" , "stock":"30" }
+	]
+}
