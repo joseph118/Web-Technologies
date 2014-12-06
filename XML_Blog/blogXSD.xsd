@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+xmlns:auth="www.josephborgcmt3313.wordpress.com/author" 
+xmlns:pg="www.josephborgcmt3313.wordpress.com/page" 
+xmlns:pgcmt="www.josephborgcmt3313.wordpress.com/pagecomment" 
+xmlns:pstcmt="www.josephborgcmt3313.wordpress.com/postcomment">
+
+	<xs:import namespace="www.josephborgcmt3313.wordpress.com/postcomment" schemaLocation="postcomment.xsd"/>
+	<xs:import namespace="www.josephborgcmt3313.wordpress.com/pagecomment" schemaLocation="pagecomment.xsd"/>
+	<xs:import namespace="www.josephborgcmt3313.wordpress.com/page" schemaLocation="page.xsd"/>
+	<xs:import namespace="www.josephborgcmt3313.wordpress.com/author" schemaLocation="author.xsd"/>
+	
+	<xs:element name="blog">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="blog_authors"/>
+				<xs:element ref="blog_pages"/>
+				<xs:element ref="all_comments"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:element name="blog_pages">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="pg:page" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:element name="blog_authors">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="auth:author" minOccurs="0"  maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:element name="all_comments">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="pgcmt:comment" minOccurs="0"  maxOccurs="unbounded"/>
+				<xs:element ref="pstcmt:comment" minOccurs="0"  maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+</xs:schema>
