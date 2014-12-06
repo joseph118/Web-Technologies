@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema targetNamespace="www.josephborgcmt3313.wordpress.com/post" 
+xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+xmlns:pst="www.josephborgcmt3313.wordpress.com/post">
+	
+	<xs:element name="post">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="pst:title" minOccurs="1" maxOccurs="1"/>
+				<xs:element ref="pst:date" minOccurs="1" maxOccurs="1"/>
+				<xs:element ref="pst:update" minOccurs="1" maxOccurs="1"/>
+				<xs:element ref="pst:paragraph" minOccurs="1" maxOccurs="unbounded"/>
+			</xs:sequence>
+			<xs:attribute name="pstID" use="required" type="xs:ID" />
+				
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:element name="title" type="xs:string" />
+	<xs:element name="date" type="xs:date" />
+	<xs:element name="update" type="xs:date" />
+	
+	<xs:element name="paragraph">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="pst:text" maxOccurs="unbounded" minOccurs="0"/>
+				<xs:element ref="pst:image" maxOccurs="unbounded" minOccurs="0"/>
+				<xs:element ref="pst:reference" maxOccurs="unbounded" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:element name="text" type="xs:string"/>
+	<xs:element name="image" type="xs:string"/>
+	<xs:element name="reference" type="xs:string"/>
+	
+</xs:schema>
