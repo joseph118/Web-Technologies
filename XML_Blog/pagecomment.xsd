@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema targetNamespace="www.josephborgcmt3313.wordpress.com/pagecomment" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:pgcmt="www.josephborgcmt3313.wordpress.com/pagecomment">
+
+	<xs:element name="comment">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="pgcmt:name" minOccurs="1" maxOccurs="1"/>
+				<xs:element ref="pgcmt:message" minOccurs="1" maxOccurs="1"/>
+				<xs:element ref="pgcmt:time_stamp" minOccurs="1" maxOccurs="1"/>
+			</xs:sequence>
+			<xs:attribute name="pgcmtID" use="required" type="xs:ID" />
+			<xs:attribute name="comment_page" use="required" type="xs:IDREF" />
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:element name="name" type="xs:string" />
+	<xs:element name="message" type="xs:string" />
+	<xs:element name="time_stamp" type="xs:date" />
+
+</xs:schema>
