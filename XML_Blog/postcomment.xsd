@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema targetNamespace="www.josephborgcmt3313.wordpress.com/postcomment" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:pstcmt="www.josephborgcmt3313.wordpress.com/postcomment">
+	
+	<xs:element name="comment">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="pstcmt:name" minOccurs="1" maxOccurs="1"/>
+				<xs:element ref="pstcmt:message" minOccurs="1" maxOccurs="1"/>
+				<xs:element ref="pstcmt:time_stamp" minOccurs="1" maxOccurs="1"/>
+			</xs:sequence>
+			<xs:attribute name="pstcmtID" use="required" type="xs:ID" />
+			<xs:attribute name="comment_post" use="required" type="xs:IDREF" />
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:element name="name" type="xs:string" />
+	<xs:element name="message" type="xs:string" />
+	<xs:element name="time_stamp" type="xs:date" />
+	
+	
+</xs:schema>
