@@ -1,0 +1,11 @@
+{
+	"category":
+	[
+		{ "ID":"001" , "type":"Shirts" },
+		{ "ID":"002" , "type":"T-Shirts" },
+		{ "ID":"003" , "type":"Dresses" },
+		{ "ID":"004" , "type":"Coats" },
+		{ "ID":"005" , "type":"Jeans" },
+		{ "ID":"006" , "type":"Jacket" }
+	]
+}
